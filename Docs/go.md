@@ -2,22 +2,21 @@
 
 目录：
 
-- [GO](#go)
-    - [工程化](#工程化)
-        - [GO项目的包管理模式Go Modules](#go项目的包管理模式go-modules)
-        - [常见的环境变量](#常见的环境变量)
-    - [特性](#特性)
-        - [import](#import)
-        - [**iota** 变量](#iota-变量)
-        - [函数](#函数)
-        - [数组](#数组)
-        - [defer](#defer)
-        - [Map](#map)
-        - [结构体、对象](#结构体对象)
-        - [多态](#多态)
-        - [反射机制(reflect)及其应用](#反射机制reflect及其应用)
-        - [goroutine](#goroutine)
-        - [channel](#channel)
+- [工程化](#工程化)
+    - [GO项目的包管理模式Go Modules](#go项目的包管理模式go-modules)
+    - [常见的环境变量](#常见的环境变量)
+- [特性](#特性)
+    - [import](#import)
+    - [**iota** 变量](#iota-变量)
+    - [函数](#函数)
+    - [数组](#数组)
+    - [defer](#defer)
+    - [Map](#map)
+    - [结构体、对象](#结构体对象)
+    - [多态](#多态)
+    - [反射机制(reflect)及其应用](#反射机制reflect及其应用)
+    - [goroutine](#goroutine)
+    - [channel](#channel)
 
 ## 工程化
 
