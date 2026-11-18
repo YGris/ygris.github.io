@@ -5,3 +5,5 @@
 - [Go语言个人学习文档](./Docs/go.md)
 
 - [C/C++](./Docs/C_C++.md)
+
+- [数据结构(Data Structure)](./Docs/DataStructure.md)
