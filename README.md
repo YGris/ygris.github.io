@@ -7,3 +7,5 @@
 - [C/C++](./Docs/C_C++.md)
 
 - [数据结构(Data Structure)](./Docs/DataStructure.md)
+
+- [嵌入式开发](./Docs/Embedded.md)
