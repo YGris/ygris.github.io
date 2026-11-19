@@ -2,6 +2,13 @@
 
 # STM32
 
+- [工程创建](#工程创建)
+    - [Keil工程创建](#keil工程创建)
+- [外设](#外设)
+    - [GPIO](#gpio)
+        - [基本使用](#基本使用)
+- [术语字典](#术语字典)
+
 STM32 最小系统板包括一个 MCU，以及电源电路、复位电路、时钟电路、启动配置电路和下载/调试接口电路
 
 ## 工程创建
@@ -15,7 +22,7 @@ STM32 最小系统板包括一个 MCU，以及电源电路、复位电路、时�
 3. 在工程文件中创建同名的Start、Library、User分组，并将上一步移动的文件分别添加到对应的分组
 4. 在工程选项中为C/C++声明IncludePath，包含所有头文件的文件夹都要声明，以便编译时识别
 5. 在工程选项的Define内定义 `USER_STDPERIPH_DRIVER` (用户标准外设)
-6. 在工程选项中的Debug页选择对应的调试器（STM32常用ST-Link）,点击**settings**，在flush download面板中勾选 **Reset and Run**
+6. 在工程选项中的Debug页选择对应的调试器（STM32常用ST-Link）,点击**settings**，在flush download面板中勾选 **Reset and Run**(这样每次烧写后将自动加载执行而不用手动复位)
 
 ## 外设
 
@@ -38,3 +45,32 @@ STM32 最小系统板包括一个 MCU，以及电源电路、复位电路、时�
 - 引脚电平为： **0-3.3v**，部分引脚可容忍 **5V**
 - 输出模式下可控制端口输出高低电平，以驱动LED、控制蜂鸣器、模拟通信协议输出时序等
 - 输入模式下可读取端口的高低电平或电压，用于读取案件输入、外接模块的电平信号输入、ADC电压采集、模拟通信协议接受数据等
+
+#### 基本使用
+
+1. 初始化：
+    1. 开启对应GPIO的时钟，见**rcc**中的 `RCC_APB2PeriphClockCmd` 函数定义
+    2. 创建一个 `GPIO_InitTypeDef` 类型的结构体，作为初始化参数
+    3. 调用 `GPIO_Init()` 进行初始化
+2. 在while循环中合理设置/读取GPIO的输入输出对设备进行控制
+
+- 收集常用的函数、结构体、宏：
+
+    | 字符                   | 类型   | 含义               |
+    | ---------------------- | ------ | ------------------ |
+    | RCC_APB2PeriphClockCmd | 函数   | 开启对应GPIO的时钟 |
+    | GPIO_InitTypeDef       | 结构体 | 初始化GPIO用的     |
+    | GPIO_Init              | 函数   | 初始化GPIO         |
+    | GPIO_SetBits           | 函数   | 将某一位设为1      |
+    | GPIO_ResetBits         | 函数   | 将某一位设为0      |
+
+> 实际开发过程中建议频繁查阅官方代码与手册
+
+## 术语字典
+
+| 术语 | 全称                          | 含义           |
+| ---- | ----------------------------- | -------------- |
+| AHB  | Advanced High-performance Bus | 高速总线       |
+| APB1 | Advanced Peripheral Bus 1     | 低速外设总线   |
+| APB2 | Advanced Peripheral Bus 2     | 高速外设总线   |
+| RCC  | Reset and Clock Control       | 复位和时钟控制 |
